@@ -15,7 +15,7 @@ def _get_model(model_name: str):
                                 azure_endpoint="https://dev.dxengws.apim.lgedx.biz/shared-5000")
         
     elif model_name == "anthropic":
-        model =  ChatAnthropic(temperature=0, model_name="claude-3-sonnet-20240229")
+        model =  ChatAnthropic(temperature=0,model="claude-3-5-sonnet-20240620")
     else:
         raise ValueError(f"Unsupported model type: {model_name}")
 
