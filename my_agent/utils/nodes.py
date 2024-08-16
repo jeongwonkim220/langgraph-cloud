@@ -10,9 +10,7 @@ from langgraph.prebuilt import ToolNode
 def _get_model(model_name: str):
     if model_name == "openai":
         #model = ChatOpenAI(temperature=0, model_name="gpt-4o")
-        model = AzureChatOpenAI(model_name = "gpt-4o-2024-05-13", temperature = 0.0,
-                                api_version="2023-05-15",
-                                azure_endpoint="https://dev.dxengws.apim.lgedx.biz/shared-5000")
+        model = AzureChatOpenAI(model_name = "gpt-4o-2024-05-13", temperature = 0.0)
         
     elif model_name == "anthropic":
         model =  ChatAnthropic(temperature=0,model="claude-3-5-sonnet-20240620")
@@ -40,7 +38,7 @@ system_prompt = """Be a helpful assistant"""
 def call_model(state, config):
     messages = state["messages"]
     messages = [{"role": "system", "content": system_prompt}] + messages
-    model_name = config.get('configurable', {}).get("model_name", "anthropic")
+    model_name = config.get('configurable', {}).get("model_name", "openai")
     model = _get_model(model_name)
     response = model.invoke(messages)
     # We return a list, because this will get added to the existing list
