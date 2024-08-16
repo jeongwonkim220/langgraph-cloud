@@ -258,7 +258,7 @@ workflow.add_conditional_edges(
     },
 )
 workflow.add_edge("reflect", "generate")
-app = workflow.compile()
+graph = workflow.compile()
 
 
 
