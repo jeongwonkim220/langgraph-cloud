@@ -13,6 +13,7 @@ from langchain_openai import AzureChatOpenAI
 
 os.environ["OPENAI_API_TYPE"] = "azure"
 os.environ["AZURE_EMBEDDING_ENDPOINT"] = "https://dev.dxengws.apim.lgedx.biz/shared-embedding"
+os.environ["AZURE_OPEAN_API_KEY"] = "87be4d58f58c42919fb50222e762c51a"
 
 
 # LCEL docs
