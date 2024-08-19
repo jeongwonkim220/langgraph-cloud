@@ -9,8 +9,8 @@ from langgraph.prebuilt import ToolNode
 @lru_cache(maxsize=4)
 def _get_model(model_name: str):
     if model_name == "openai":
-        #model = ChatOpenAI(temperature=0, model_name="gpt-4o")
-        model = AzureChatOpenAI(model_name = "gpt-4o-2024-05-13", temperature = 0.0)
+        model = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo")
+        #model = AzureChatOpenAI(model_name = "gpt-4o-2024-05-13", temperature = 0.0)
         
     elif model_name == "anthropic":
         model =  ChatAnthropic(temperature=0,model="claude-3-5-sonnet-20240620")
