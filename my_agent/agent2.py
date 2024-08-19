@@ -123,7 +123,7 @@ def generate(state: GraphState):
     messages = state["messages"]
     iterations = state["iterations"]
     #print(state.keys())
-    error = state["Error"]
+    error = state["error"]
 
     # We have been routed back to generation with an error
     if error == "yes":
