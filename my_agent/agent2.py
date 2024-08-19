@@ -11,9 +11,6 @@ from langchain_core.pydantic_v1 import BaseModel, Field
 from langchain_openai import AzureChatOpenAI
 
 
-os.environ["OPENAI_API_TYPE"] = "azure"
-os.environ["AZURE_EMBEDDING_ENDPOINT"] = "https://dev.dxengws.apim.lgedx.biz/shared-embedding"
-os.environ["AZURE_OPEAN_API_KEY"] = "87be4d58f58c42919fb50222e762c51a"
 
 
 # LCEL docs
@@ -77,9 +74,6 @@ class code(BaseModel):
 llm_model = AzureChatOpenAI(
                                          model_name = "gpt-4o-2024-05-13",
                                          temperature = 0.0,
-                                        api_key = "87be4d58f58c42919fb50222e762c51a",
-                                        api_version = "2023-05-15",
-                                        azure_endpoint = "https://dev.dxengws.apim.lgedx.biz/shared-5000"
                                         
                                          )
 
