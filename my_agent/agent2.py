@@ -62,7 +62,9 @@ llm_model = AzureChatOpenAI(
                                          model_name = "gpt-4o-2024-05-13",
                                          temperature = 0.0,
                                         api_key = "87be4d58f58c42919fb50222e762c51a",
-                                        api_version = "2023-05-15"
+                                        api_version = "2023-05-15",
+                                        azure_endpoint = "https://dev.dxengws.apim.lgedx.biz/shared-5000"
+                                        
                                          )
 
 code_gen_chain = code_gen_prompt | llm_model.with_structured_output(code,include_raw=True)
