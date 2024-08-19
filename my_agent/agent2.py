@@ -60,7 +60,8 @@ class code(BaseModel):
 
 llm_model = AzureChatOpenAI(
                                          model_name = "gpt-4o-2024-05-13",
-                                         temperature = 0.0
+                                         temperature = 0.0,
+                                        api_key = "87be4d58f58c42919fb50222e762c51a"
                                          )
 
 code_gen_chain = code_gen_prompt | llm_model.with_structured_output(code,include_raw=True)
