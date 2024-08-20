@@ -9,6 +9,7 @@ from langchain_community.document_loaders.recursive_url_loader import RecursiveU
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.pydantic_v1 import BaseModel, Field
 from langchain_openai import AzureChatOpenAI
+from langchain_openai import ChatOpenAI
 from my_agent.utils.nodes import _get_model
 
 
