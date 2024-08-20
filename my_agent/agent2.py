@@ -72,11 +72,6 @@ class code(BaseModel):
     code: str = Field(description="Code block not including import statements")
     description = "Schema for code solutions to questions about LCEL."
 
-
-llm_model = _get_model("openai")
-
-code_gen_chain = code_gen_prompt | llm_model.with_structured_output(code,include_raw=True)
-
 def parse_output(solution):
     """When we add 'include_raw=True' to structured output,
     it will return a dict w 'raw', 'parsed', 'parsing_error'."""
@@ -84,7 +79,10 @@ def parse_output(solution):
     return solution["parsed"]
 
 # Optional: With re-try to correct for failure to invoke tool
-code_gen_chain = code_gen_chain | parse_output
+# llm_model = _get_model("openai")
+
+# code_gen_chain = code_gen_prompt | llm_model.with_structured_output(code,include_raw=True)
+# code_gen_chain = code_gen_chain | parse_output
 
 ### Parameter
 
@@ -110,6 +108,10 @@ def generate(state: GraphState):
     """
 
     print("---GENERATING CODE SOLUTION---")
+    llm_model = _get_model("openai")
+
+    code_gen_chain = code_gen_prompt | llm_model.with_structured_output(code,include_raw=True)
+    code_gen_chain = code_gen_chain | parse_output
 
     # State
     messages = state["messages"]
@@ -212,6 +214,11 @@ def reflect(state: GraphState):
     """
 
     print("---GENERATING CODE SOLUTION---")
+
+    llm_model = _get_model("openai")
+
+    code_gen_chain = code_gen_prompt | llm_model.with_structured_output(code,include_raw=True)
+    code_gen_chain = code_gen_chain | parse_output
 
     # State
     messages = state["messages"]
