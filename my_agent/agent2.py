@@ -14,7 +14,7 @@ from langchain_openai import AzureChatOpenAI
 
 
 # LCEL docs
-url = "https://python.langchain.com/v0.2/docs/concepts/#langchain-expression-language-lcel"
+url = "https://schemdraw.readthedocs.io/en/latest/elements/flow.html"
 loader = RecursiveUrlLoader(
     url=url, max_depth=20, extractor=lambda x: Soup(x, "html.parser").text
 )
@@ -34,8 +34,8 @@ code_gen_prompt = ChatPromptTemplate.from_messages(
     [
         (
             "system",
-            """You are a coding assistant with expertise in LCEL, LangChain expression language. \n 
-    Here is a full set of LCEL documentation:  \n ------- \n  {context} \n ------- \n Answer the user 
+            """You are a coding assistant with expertise in schemdraw flowchart. \n 
+    Here is a full set of schemdraw flowchart documentation:  \n ------- \n  {context} \n ------- \n Answer the user 
     question based on the above provided documentation. Ensure any code you provide can be executed \n 
     with all required imports and variables defined. Structure your answer with a description of the code solution. \n
     Then list the imports. And finally list the functioning code block. Here is the user question:""",
