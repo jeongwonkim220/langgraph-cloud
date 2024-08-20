@@ -9,7 +9,7 @@ from langchain_community.document_loaders.recursive_url_loader import RecursiveU
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.pydantic_v1 import BaseModel, Field
 from langchain_openai import AzureChatOpenAI
-from my_agent.utils.nodes import 
+from my_agent.utils.nodes import _get_model
 
 
 
@@ -72,11 +72,7 @@ class code(BaseModel):
     description = "Schema for code solutions to questions about LCEL."
 
 
-llm_model = AzureChatOpenAI(
-                                         model_name = "gpt-4o-2024-05-13",
-                                         temperature = 0.0,
-                                        
-                                         )
+llm_model = _get_model("openai")
 
 code_gen_chain = code_gen_prompt | llm_model.with_structured_output(code,include_raw=True)
 
