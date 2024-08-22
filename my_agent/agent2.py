@@ -70,7 +70,7 @@ class code(BaseModel):
     prefix: str = Field(description="Description of the problem and approach")
     imports: str = Field(description="Code block import statements")
     code: str = Field(description="Code block not including import statements")
-    description = "Schema for code solutions to questions about LCEL."
+    description = "Schema for code solutions to questions about schema flowchart"
 
 def parse_output(solution):
     """When we add 'include_raw=True' to structured output,
@@ -124,7 +124,7 @@ def generate(state: GraphState):
         messages += [
             (
                 "user",
-                "Now, try again. Invoke the code tool to structure the output with a prefix, imports, and code block. imports에서 성공했다면, imports는 계속 그대로 사용해줘",
+                "Now, try again. Invoke the code tool to structure the output with a prefix, imports, and code block.",
             )
         ]
 
